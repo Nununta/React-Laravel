@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title','is_done'
+    ];
+
+    //$castsでデータ型の指定が可能。boolはboolean型
+    protected $casts = [
+        'is_done' => 'bool'
+    ];
 }
