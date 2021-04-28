@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('{all}', function () {
     return view('index');
-});
+})->where(['all'=> '.*']);
+//上記の記述で全てのアクセスでindexが読み込まれるようになる
