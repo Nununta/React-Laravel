@@ -17,4 +17,13 @@ class Task extends Model
     protected $casts = [
         'is_done' => 'bool'
     ];
+
+    //日本語化
+    public function attributes(){
+        return [
+            'title' => 'タイトル'
+        ];
+    }
+        
+
 }
