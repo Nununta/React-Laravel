@@ -1983,120 +1983,10 @@ exports.default = App;
 
 /***/ }),
 
-/***/ "./resources/ts/index.tsx":
-/*!********************************!*\
-  !*** ./resources/ts/index.tsx ***!
-  \********************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
-
-var App_1 = __importDefault(__webpack_require__(/*! ./App */ "./resources/ts/App.tsx"));
-
-react_dom_1["default"].render(react_1["default"].createElement(App_1["default"], null), document.getElementById('app'));
-
-/***/ }),
-
-/***/ "./resources/ts/pages/help/index.tsx":
-/*!*******************************************!*\
-  !*** ./resources/ts/pages/help/index.tsx ***!
-  \*******************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var HelpPage = function HelpPage() {
-  return react_1["default"].createElement("div", {
-    className: "align-center"
-  }, react_1["default"].createElement("h1", null, "\u30D8\u30EB\u30D7"), react_1["default"].createElement("p", null, "\u3053\u306E\u30B5\u30A4\u30C8\u306E\u4F7F\u3044\u65B9\u306B\u3064\u3044\u3066\u3001", react_1["default"].createElement("br", null), "\u3053\u306E\u30DA\u30FC\u30B8\u3067\u89E3\u8AAC\u3057\u3066\u3044\u304D\u307E\u3059\u3002"));
-};
-
-exports.default = HelpPage;
-
-/***/ }),
-
-/***/ "./resources/ts/pages/login/index.tsx":
-/*!********************************************!*\
-  !*** ./resources/ts/pages/login/index.tsx ***!
-  \********************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var LoginPage = function LoginPage() {
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
-    className: "login-page"
-  }, react_1["default"].createElement("div", {
-    className: "login-panel"
-  }, react_1["default"].createElement("form", null, react_1["default"].createElement("div", {
-    className: "input-group"
-  }, react_1["default"].createElement("label", null, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
-    type: "email",
-    className: "input"
-  })), react_1["default"].createElement("div", {
-    className: "input-group"
-  }, react_1["default"].createElement("label", null, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
-    type: "password",
-    className: "input"
-  })), react_1["default"].createElement("button", {
-    type: "submit",
-    className: "btn"
-  }, "\u30ED\u30B0\u30A4\u30F3"))), react_1["default"].createElement("div", {
-    className: "links"
-  }, react_1["default"].createElement("a", {
-    href: "#"
-  }, "\u30D8\u30EB\u30D7"))));
-};
-
-exports.default = LoginPage;
-
-/***/ }),
-
-/***/ "./resources/ts/pages/tasks/index.tsx":
-/*!********************************************!*\
-  !*** ./resources/ts/pages/tasks/index.tsx ***!
-  \********************************************/
+/***/ "./resources/ts/api/TaskAPI.ts":
+/*!*************************************!*\
+  !*** ./resources/ts/api/TaskAPI.ts ***!
+  \*************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -2254,46 +2144,270 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+exports.getTasks = void 0;
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
+var getTasks = function getTasks() {
+  return __awaiter(void 0, void 0, void 0, function () {
+    var data;
+    return __generator(this, function (_a) {
+      switch (_a.label) {
+        case 0:
+          return [4
+          /*yield*/
+          , axios_1["default"].get('api/tasks')];
+
+        case 1:
+          data = _a.sent().data;
+          return [2
+          /*return*/
+          , data];
+      }
+    });
+  });
+};
+
+exports.getTasks = getTasks;
+
+/***/ }),
+
+/***/ "./resources/ts/index.tsx":
+/*!********************************!*\
+  !*** ./resources/ts/index.tsx ***!
+  \********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
+
+var App_1 = __importDefault(__webpack_require__(/*! ./App */ "./resources/ts/App.tsx"));
+
+react_dom_1["default"].render(react_1["default"].createElement(App_1["default"], null), document.getElementById('app'));
+
+/***/ }),
+
+/***/ "./resources/ts/pages/help/index.tsx":
+/*!*******************************************!*\
+  !*** ./resources/ts/pages/help/index.tsx ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var HelpPage = function HelpPage() {
+  return react_1["default"].createElement("div", {
+    className: "align-center"
+  }, react_1["default"].createElement("h1", null, "\u30D8\u30EB\u30D7"), react_1["default"].createElement("p", null, "\u3053\u306E\u30B5\u30A4\u30C8\u306E\u4F7F\u3044\u65B9\u306B\u3064\u3044\u3066\u3001", react_1["default"].createElement("br", null), "\u3053\u306E\u30DA\u30FC\u30B8\u3067\u89E3\u8AAC\u3057\u3066\u3044\u304D\u307E\u3059\u3002"));
+};
+
+exports.default = HelpPage;
+
+/***/ }),
+
+/***/ "./resources/ts/pages/login/index.tsx":
+/*!********************************************!*\
+  !*** ./resources/ts/pages/login/index.tsx ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var LoginPage = function LoginPage() {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    className: "login-page"
+  }, react_1["default"].createElement("div", {
+    className: "login-panel"
+  }, react_1["default"].createElement("form", null, react_1["default"].createElement("div", {
+    className: "input-group"
+  }, react_1["default"].createElement("label", null, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"), react_1["default"].createElement("input", {
+    type: "email",
+    className: "input"
+  })), react_1["default"].createElement("div", {
+    className: "input-group"
+  }, react_1["default"].createElement("label", null, "\u30D1\u30B9\u30EF\u30FC\u30C9"), react_1["default"].createElement("input", {
+    type: "password",
+    className: "input"
+  })), react_1["default"].createElement("button", {
+    type: "submit",
+    className: "btn"
+  }, "\u30ED\u30B0\u30A4\u30F3"))), react_1["default"].createElement("div", {
+    className: "links"
+  }, react_1["default"].createElement("a", {
+    href: "#"
+  }, "\u30D8\u30EB\u30D7"))));
+};
+
+exports.default = LoginPage;
+
+/***/ }),
+
+/***/ "./resources/ts/pages/queries/TaskQuery.ts":
+/*!*************************************************!*\
+  !*** ./resources/ts/pages/queries/TaskQuery.ts ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.useTasks = void 0;
+
+var api = __importStar(__webpack_require__(/*! ../../api/TaskAPI */ "./resources/ts/api/TaskAPI.ts"));
+
 var react_query_1 = __webpack_require__(/*! react-query */ "./node_modules/react-query/es/index.js");
 
-var TaskPage = function TaskPage() {
-  /*
-      const [tasks, setTasks] = useState<Task[]>([])
-     
-      const getTasks = async () => {
-          const { data }  = await axios.get<Task[]>('api/tasks')
-          // console.log(data);
-          setTasks(data)
-      }
-  
-      useEffect(() => {
-          getTasks()
-      },[])
-  */
-  var _a = react_query_1.useQuery('tasks', function () {
-    return __awaiter(void 0, void 0, void 0, function () {
-      var data;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            return [4
-            /*yield*/
-            , axios_1["default"].get('api/tasks')];
+var useTasks = function useTasks() {
+  return react_query_1.useQuery('tasks', function () {
+    return api.getTasks();
+  });
+};
 
-          case 1:
-            data = _a.sent().data;
-            return [2
-            /*return*/
-            , data];
-        }
-      });
-    });
-  }),
+exports.useTasks = useTasks;
+
+/***/ }),
+
+/***/ "./resources/ts/pages/tasks/TaskItem.tsx":
+/*!***********************************************!*\
+  !*** ./resources/ts/pages/tasks/TaskItem.tsx ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var TaskItem = function TaskItem(_a) {
+  var task = _a.task;
+  return react_1["default"].createElement("li", null, react_1["default"].createElement("label", {
+    className: "checkbox-label"
+  }, react_1["default"].createElement("input", {
+    type: "checkbox",
+    className: "checkbox-input"
+  })), react_1["default"].createElement("div", null, react_1["default"].createElement("span", null, task.title)), react_1["default"].createElement("button", {
+    className: "btn is-delete"
+  }, "\u524A\u9664"));
+};
+
+exports.default = TaskItem;
+
+/***/ }),
+
+/***/ "./resources/ts/pages/tasks/TaskList.tsx":
+/*!***********************************************!*\
+  !*** ./resources/ts/pages/tasks/TaskList.tsx ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var TaskQuery_1 = __webpack_require__(/*! ../queries/TaskQuery */ "./resources/ts/pages/queries/TaskQuery.ts");
+
+var TaskItem_1 = __importDefault(__webpack_require__(/*! ./TaskItem */ "./resources/ts/pages/tasks/TaskItem.tsx"));
+
+var TaskList = function TaskList() {
+  var _a = TaskQuery_1.useTasks(),
       tasks = _a.data,
       status = _a.status;
 
@@ -2311,32 +2425,15 @@ var TaskPage = function TaskPage() {
     }, "\u767B\u9332\u3055\u308C\u305FTODO\u306F\u3042\u308A\u307E\u305B\u3093\u3002");
   }
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("form", {
-    className: "input-form"
-  }, react_1["default"].createElement("div", {
-    className: "inner"
-  }, react_1["default"].createElement("input", {
-    type: "text",
-    className: "input",
-    placeholder: "TODO\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-    defaultValue: ""
-  }), react_1["default"].createElement("button", {
-    className: "btn is-primary"
-  }, "\u8FFD\u52A0"))), react_1["default"].createElement("div", {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "inner"
   }, react_1["default"].createElement("ul", {
     className: "task-list"
   }, tasks.map(function (task, index) {
-    return react_1["default"].createElement("li", {
-      key: index
-    }, react_1["default"].createElement("label", {
-      className: "checkbox-label"
-    }, react_1["default"].createElement("input", {
-      type: "checkbox",
-      className: "checkbox-input"
-    })), react_1["default"].createElement("div", null, react_1["default"].createElement("span", null, task.title)), react_1["default"].createElement("button", {
-      className: "btn is-delete"
-    }, "\u524A\u9664"));
+    return react_1["default"].createElement(TaskItem_1["default"], {
+      key: index,
+      task: task
+    });
   }), react_1["default"].createElement("li", null, react_1["default"].createElement("label", {
     className: "checkbox-label"
   }, react_1["default"].createElement("input", {
@@ -2372,6 +2469,92 @@ var TaskPage = function TaskPage() {
   })), react_1["default"].createElement("div", null, react_1["default"].createElement("span", null, "\u6383\u9664")), react_1["default"].createElement("button", {
     className: "btn is-delete"
   }, "\u524A\u9664")))));
+};
+
+exports.default = TaskList;
+
+/***/ }),
+
+/***/ "./resources/ts/pages/tasks/Taskinput.tsx":
+/*!************************************************!*\
+  !*** ./resources/ts/pages/tasks/Taskinput.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Taskinput = function Taskinput() {
+  return react_1["default"].createElement("form", {
+    className: "input-form"
+  }, react_1["default"].createElement("div", {
+    className: "inner"
+  }, react_1["default"].createElement("input", {
+    type: "text",
+    className: "input",
+    placeholder: "TODO\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+    defaultValue: ""
+  }), react_1["default"].createElement("button", {
+    className: "btn is-primary"
+  }, "\u8FFD\u52A0")));
+};
+
+exports.default = Taskinput;
+
+/***/ }),
+
+/***/ "./resources/ts/pages/tasks/index.tsx":
+/*!********************************************!*\
+  !*** ./resources/ts/pages/tasks/index.tsx ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Taskinput_1 = __importDefault(__webpack_require__(/*! ./Taskinput */ "./resources/ts/pages/tasks/Taskinput.tsx"));
+
+var TaskList_1 = __importDefault(__webpack_require__(/*! ./TaskList */ "./resources/ts/pages/tasks/TaskList.tsx"));
+
+var TaskPage = function TaskPage() {
+  /*
+      const [tasks, setTasks] = useState<Task[]>([])
+     
+      const getTasks = async () => {
+          const { data }  = await axios.get<Task[]>('api/tasks')
+          // console.log(data);
+          setTasks(data)
+      }
+  
+      useEffect(() => {
+          getTasks()
+      },[])
+  */
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Taskinput_1["default"], null), react_1["default"].createElement(TaskList_1["default"], null));
 };
 
 exports.default = TaskPage;
